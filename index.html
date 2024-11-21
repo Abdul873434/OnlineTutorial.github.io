@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Tuition Classes</title>
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="height: 100vh; background: linear-gradient(135deg, #6a11cb, #2575fc); display: flex; justify-content: center; align-items: center; position: relative; color: #fff; text-align: center; overflow: hidden;">
+        <div class="overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; top: 5%; left: 5%; right: 5%; bottom: 5%; z-index: 2; border-radius: 15px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); backdrop-filter: blur(8px);"></div>
+        <div class="content" style="z-index: 3;">
+            <h1 style="font-size: 4rem; margin-bottom: 15px;">Welcome to Focus Point Tutorial</h1>
+            <p class="tagline" style="font-size: 1.5rem; margin-bottom: 30px;">Learn programming, Excel, and more with expert guidance.</p>
+            <div class="cta-buttons">
+                <a href="#courses" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; margin: 10px; font-size: 1.1rem; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">Explore Courses</a>
+                <a href="#contact" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; margin: 10px; font-size: 1.1rem; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" style="padding: 50px 20px; text-align: center; background-color: #f1f4f9;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">Choose a Course</h2>
+        <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">Select your preferred course and topic to get started!</p>
+        <form id="enrollment-form" style="display: inline-block; max-width: 500px; text-align: left; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            <label for="course" style="font-size: 1.1rem; font-weight: bold; color: #444;">Course:</label>
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <i class="fa fa-graduation-cap" style="margin-right: 10px; font-size: 1.2rem; color: #2575fc;"></i>
+                <select id="course" required style="flex: 1; padding: 12px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd;">
+                    <option value="">-- Select a Course --</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C++">C++</option>
+                    <option value="Math">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                </select>
+            </div>
+            
+            <label for="topic" style="font-size: 1.1rem; font-weight: bold; color: #444;">Preferred Topic:</label>
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <i class="fa fa-book" style="margin-right: 10px; font-size: 1.2rem; color: #2575fc;"></i>
+                <input type="text" id="topic" placeholder="Enter topic (e.g., Loops, Grammar)" required style="flex: 1; padding: 12px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd;">
+            </div>
+            
+            <button type="submit" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+                Enroll Now
+            </button>
+        </form>
+        <p id="enroll-response" style="margin-top: 20px; font-size: 1.1rem; color: #2575fc;"></p>
+    </section>
+   
+    <!-- Live Class Section -->
+    <section id="liveClass" style="padding: 50px 20px; text-align: center; background: #fff;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Join Our Live Class</h2>
+        <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">Join us live and learn in real-time!</p>
+    
+        <!-- Dynamic Countdown Timer -->
+        <div id="countdown" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">
+            <p style="color: #2575fc;">Next class starts in:</p>
+            <div id="timer" style="font-size: 2rem;">Loading...</div>
+        </div>
+    
+        <!-- Zoom Meeting Embed with Dynamic Source -->
+        <div id="liveClassContent" style="margin-top: 20px;">
+            <!-- This iframe will be dynamically updated -->
+            <iframe id="zoomIframe" src="" width="100%" height="500" allow="camera; microphone" style="border: none; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></iframe>
+        </div>
+    
+        <button id="joinButton" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; font-size: 1.1rem; margin-top: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); border: none; cursor: pointer;">
+            Join Now
+        </button>
+    </section>
+    
+    <script>
+    // Example data for dynamic functionality
+    const liveClass = {
+        meetingID: "YOUR_MEETING_ID", // Replace with actual meeting ID
+        startTime: new Date("2024-11-30T15:00:00Z"), // Scheduled start time (UTC)
+        zoomLink: "https://zoom.us/wc/YOUR_MEETING_ID/start" // Replace with actual Zoom meeting URL
+    };
+    
+    // Function to update the countdown timer
+    function updateCountdown() {
+        const now = new Date();
+        const timeDifference = liveClass.startTime - now;
+        
+        if (timeDifference <= 0) {
+            document.getElementById("timer").innerText = "Class has started!";
+            document.getElementById("joinButton").style.display = "block";
+            document.getElementById("zoomIframe").src = liveClass.zoomLink; // Dynamically set the Zoom URL
+        } else {
+            const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            document.getElementById("timer").innerText = `${hours}h ${minutes}m ${seconds}s`;
+        }
+    }
+    
+    // Call the countdown function every second
+    setInterval(updateCountdown, 1000);
+    
+    // Show the "Join Now" button when the class is live
+    document.getElementById("joinButton").addEventListener("click", function () {
+        window.location.href = liveClass.zoomLink; // Redirect to the Zoom meeting
+    });
+
+    </script>
+    <!-- Register Section -->
+    <section id="register" style="padding: 50px 20px; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Register for Our Courses</h2>
+    
+        <form id="registerForm" action="register.php" method="POST" aria-labelledby="register-header">
+            <div style="margin-bottom: 20px;">
+                <label for="name" style="font-size: 1.1rem; font-weight: bold; display: block;">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="font-size: 1.1rem; font-weight: bold; display: block;">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd;">
+            </div>
+    
+            <button type="submit" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; margin: 10px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">Register</button>
+        </form>
+    </section>
+   
+    <!-- Contact Us Section -->
+    <section id="contact" style="padding: 50px 20px; text-align: center; background: #fff;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Contact Us</h2>
+        <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">We’re here to help. Reach us through the platforms below or send us a message!</p>
+    
+        <!-- Contact Links Section -->
+        <div class="contact-links" style="text-align: center; margin-bottom: 30px;">
+            <a href="https://www.linkedin.com/in/abdullah-undefined-a7748925a" target="_blank" style="font-size: 1.5rem; color: #333; margin: 10px; padding: 10px; display: inline-block; border: 2px solid #6a11cb; border-radius: 30px;" aria-label="LinkedIn">LinkedIn</a>
+            <a href="https://github.com/Abdul873434" target="_blank" style="font-size: 1.5rem; color: #333; margin: 10px; padding: 10px; display: inline-block; border: 2px solid #6a11cb; border-radius: 30px;" aria-label="GitHub">GitHub</a>
+            <a href="https://www.youtube.com/@EasyLearnHub-y4j" target="_blank" style="font-size: 1.5rem; color: #333; margin: 10px; padding: 10px; display: inline-block; border: 2px solid #6a11cb; border-radius: 30px;" aria-label="YouTube">YouTube</a>
+        </div>
+    
+        <h3 style="font-size: 2rem; margin-bottom: 20px;">Send Us a Message</h3>
+        
+        <!-- Contact Form -->
+        <form id="contact-form" action="send-message.php" method="POST">
+            <div style="margin-bottom: 20px;">
+                <input type="text" id="name" name="name" placeholder="Your Name" required style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd;" aria-label="Your Name">
+            </div>
+    
+            <div style="margin-bottom: 20px;">
+                <input type="email" id="email" name="email" placeholder="Your Email" required style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd;" aria-label="Your Email">
+            </div>
+    
+            <div style="margin-bottom: 20px;">
+                <textarea id="message" name="message" placeholder="Write your message here..." required style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd; width: 100%; height: 150px;" aria-label="Your Message"></textarea>
+            </div>
+    
+            <button type="submit" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; margin: 10px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">Send Message</button>
+        </form>
+    </section>
+    
+
+    <!-- Feedback Section -->
+<section id="feedback" style="padding: 50px 20px; text-align: center; background: #f9f9f9;">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">What Would You Like to Learn Next?</h2>
+
+    <p style="font-size: 1.2rem; color: #555; margin-bottom: 30px;">We value your feedback! Share your suggestions to help us improve.</p>
+
+    <!-- Feedback Form -->
+    <form id="feedback-form" action="submit-feedback.php" method="POST">
+        <div style="margin-bottom: 20px;">
+            <textarea id="suggestion" name="suggestion" placeholder="Write your suggestion here..." required style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd; width: 100%; height: 150px;" aria-label="Your Suggestion"></textarea>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <input type="email" id="email" name="email" placeholder="Your Email (Optional)" style="padding: 12px; margin: 10px; font-size: 1rem; border-radius: 10px; border: 1px solid #ddd; width: 100%;" aria-label="Your Email">
+        </div>
+
+        <!-- Google reCAPTCHA -->
+        <div style="margin-bottom: 20px;">
+            <div class="g-recaptcha" data-sitekey="your-site-key"></div> 
+            <!-- Replace 'your-site-key' with your actual reCAPTCHA site key -->
+        </div>
+
+        <button type="submit" style="padding: 12px 25px; background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; border-radius: 30px; margin: 10px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);">Submit Suggestion</button>
+    </form>
+
+    <p style="font-size: 1.2rem; color: #555; margin-top: 20px;">Alternatively, you can also <a href="mailto:your-email@example.com" style="color: #2575fc;">email us directly</a> with your suggestions.</p>
+</section>
+      
+</body>
+
+</html>
